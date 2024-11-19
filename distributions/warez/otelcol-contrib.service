@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenTelemetry Collector Warez
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/otelcol-warez/otelcol-warez.conf
+ExecStart=/usr/bin/otelcol-warez $OTELCOL_OPTIONS
+KillMode=mixed
+Restart=on-failure
+Type=simple
+User=otelcol-warez
+Group=otelcol-warez
+
+[Install]
+WantedBy=multi-user.target
